@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class DashUsersController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     protected $data;
     //init page data
     private function initDataArr()
