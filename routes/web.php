@@ -14,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Shop
+Route::get("shops/show", "ShopsController@home");
+Route::get("shops/add", "ShopsController@addPage");
+Route::get("shops/show/{id}", "ShopsController@addPage");
+Route::get("shops/profile/{id}", "ShopsController@profile");
+Route::post("shops/update/{id}", "ShopsController@update");
+Route::post("shops/insert", "ShopsController@insert");
+
 //Users
 Route::get("users/show/all", "UsersController@home");
 Route::get("users/show/{id}", "UsersController@home");

@@ -148,7 +148,13 @@
 
                         <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="far fa-money-bill-alt"></i><span class="hide-menu">Market</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="{{url('shops/show')}}">Shops</a></li>
+                                <li>
+                                    <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"> <span class="hide-menu">Shops</span></a>
+                                    <ul aria-expanded="false" class="collapse">
+                                        <li><a href="{{url('shops/show')}}">Show</a></li>
+                                        <li><a href="{{url('shops/add')}}">Add</a></li>
+                                    </ul>
+                                </li>
                                 <li><a href="{{url('products/show')}}">Products</a></li>
                                 <li><a href="{{url('vets/show')}}">Vets</a></li>
                             </ul>
