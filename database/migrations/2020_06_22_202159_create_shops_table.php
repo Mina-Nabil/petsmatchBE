@@ -20,6 +20,7 @@ class CreateShopsTable extends Migration
             $table->string("SHOP_UNAME")->unique();
             $table->string("SHOP_PASS");
             $table->string("SHOP_NTID")->nullable(); //segel togary
+            $table->string("SHOP_IMGE")->nullable(); //soraaaa
             $table->string("SHOP_ADRS")->nullable();
             $table->string("SHOP_STRT_HRS")->nullable();
             $table->string("SHOP_END_HRS")->nullable();

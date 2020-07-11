@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateShopsTable extends Migration
+class CreateVetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -21,6 +21,7 @@ class CreateShopsTable extends Migration
             $table->string("VETS_PASS");
             $table->string("VETS_NTID")->nullable(); //segel togary
             $table->string("VETS_ADRS")->nullable();
+            $table->string("VETS_IMGE")->nullable(); //soraaaa
             $table->string("VETS_MAIL");
             $table->string("VETS_PHNE");
             $table->string("VETS_LOCT_LONG")->nullable();

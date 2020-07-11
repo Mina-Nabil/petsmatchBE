@@ -14,12 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Vets
+Route::get("vets/show", "VetsController@home");
+Route::get("vets/add", "VetsController@addPage");
+Route::get("vets/edit/{id}", "VetsController@addPage");
+Route::get("vets/profile/{id}", "VetsController@profile");
+Route::post("vets/update", "VetsController@update");
+Route::post("vets/insert", "VetsController@insert");
+
 //Shop
 Route::get("shops/show", "ShopsController@home");
 Route::get("shops/add", "ShopsController@addPage");
-Route::get("shops/show/{id}", "ShopsController@addPage");
+Route::get("shops/edit/{id}", "ShopsController@addPage");
 Route::get("shops/profile/{id}", "ShopsController@profile");
-Route::post("shops/update/{id}", "ShopsController@update");
+Route::post("shops/update", "ShopsController@update");
 Route::post("shops/insert", "ShopsController@insert");
 
 //Users

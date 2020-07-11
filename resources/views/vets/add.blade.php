@@ -8,32 +8,32 @@
                 <h4 class="card-title">{{ $formTitle }}</h4>
                 <form class="form pt-3" method="post" action="{{ url($formURL) }}" enctype="multipart/form-data">
                     @csrf
-                    @isset($shop)
-                    <input type=hidden name=id value="{{(isset($shop)) ? $shop->id : ''}}">
+                    @isset($vet)
+                    <input type=hidden name=id value="{{(isset($vet)) ? $vet->id : ''}}">
                     @endisset
-                    @if(isset($shop->SHOP_IMGE))
-                    <input type=hidden name=oldPath value="{{$shop->SHOP_IMGE}}">
+                    @if(isset($vet->VETS_IMGE))
+                    <input type=hidden name=oldPath value="{{$vet->VETS_IMGE}}">
                     @endif
                     <div class="form-group">
-                        <label>Shop Account Username*</label>
+                        <label>Vet Account Username*</label>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon11"><i class="ti-user"></i></span>
                             </div>
                             <input type="text" class="form-control" placeholder="Username" name=username aria-label="Username" aria-describedby="basic-addon11"
-                                value="{{ (isset($shop)) ? $shop->SHOP_UNAME : old('username')}}" required>
+                                value="{{ (isset($vet)) ? $vet->VETS_UNAME : old('username')}}" required>
                         </div>
                         <small class="text-danger">{{$errors->first('name')}}</small>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Shop Name*</label>
+                        <label for="exampleInputEmail1">Vet Name*</label>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon22"><i class="ti-user"></i></span>
                             </div>
-                            <input type="text" class="form-control" name=shopName placeholder="Shop Name" value="{{ (isset($shop)) ? $shop->SHOP_NAME : old('shopName')}}" required>
+                            <input type="text" class="form-control" name=vetName placeholder="Vet Name" value="{{ (isset($vet)) ? $vet->VETS_NAME : old('vetName')}}" required>
                         </div>
-                        <small class="text-danger">{{$errors->first('shopName')}}</small>
+                        <small class="text-danger">{{$errors->first('vetName')}}</small>
                     </div>
                     <div class="form-group">
                         <label>City*</label>
@@ -41,7 +41,7 @@
                             <select name=city class="select2 form-control custom-select" style="width: 100%; height:36px;" required>
                                 <option value="" disabled selected>Pick From Registered Cities</option>
                                 @foreach($cities as $city)
-                                <option value="{{ $city->id }}" @if(isset($shop) && $city->id == $shop->SHOP_CITY_ID)
+                                <option value="{{ $city->id }}" @if(isset($vet) && $city->id == $vet->VETS_CITY_ID)
                                     selected
                                     @elseif(old('city')!==null && $city->id == old('city'))
                                     selected
@@ -59,7 +59,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon11"><i class=" fas fa-at"></i></span>
                             </div>
-                            <input type="email" class="form-control" placeholder="Shop Info Mail Address" name=mail value="{{ (isset($shop)) ? $shop->SHOP_MAIL : old('mail')}}">
+                            <input type="email" class="form-control" placeholder="Vet Info Mail Address" name=mail value="{{ (isset($vet)) ? $vet->VETS_MAIL : old('mail')}}">
                         </div>
                         <small class="text-danger">{{$errors->first('ntid')}}</small>
                     </div>
@@ -70,19 +70,19 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon11"><i class="fas fa-phone"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Phone Number" name=phone value="{{ (isset($shop)) ? $shop->SHOP_PHNE : old('phone')}}">
+                            <input type="text" class="form-control" placeholder="Phone Number" name=phone value="{{ (isset($vet)) ? $vet->VETS_PHNE : old('phone')}}">
                         </div>
                         <small class="text-danger">{{$errors->first('phone')}}</small>
                     </div>
 
                     <div class="form-group">
-                        <label>Shop Image</label>
+                        <label>Vet Image</label>
                         <div class="input-group mb-3">
                             <button type=button id="upload_widget" class="cloudinary-button">Upload files</button>
                             <input type=hidden id=uploaded name=uploadedImage value="{{old('uploadedImage')}}" />
                         </div>
-                        @isset($shop->SHOP_IMGE)
-                        <small>Uploading a photo will override the original <a href="{{$shop->SHOP_IMGE}}" target="_blank">photo</a>.</small>
+                        @isset($vet->VETS_IMGE)
+                        <small>Uploading a photo will override the original <a href="{{$vet->VETS_IMGE}}" target="_blank">photo</a>.</small>
                         @endisset
                     </div>
 
@@ -95,7 +95,7 @@
                             <input type="text" class="form-control" name=password placeholder="Password" aria-label="Password" aria-describedby="basic-addon33" @if($isPassNeeded) required @endif />
                         </div>
                         <small class="text-danger">{{$errors->first('password')}}</small>
-                        @isset($shop->SHOP_PASS)
+                        @isset($vet->VETS_PASS)
                         <small>Entering a password will override the original password.</small>
                         @endisset
                     </div>
@@ -106,7 +106,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon11"><i class="fas fa-barcode"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Record ID (Not Required)" name=ntid value="{{ (isset($shop)) ? $shop->SHOP_NTID : old('ntid')}}">
+                            <input type="text" class="form-control" placeholder="Record ID (Not Required)" name=ntid value="{{ (isset($vet)) ? $vet->VETS_NTID : old('ntid')}}">
                         </div>
                         <small class="text-danger">{{$errors->first('ntid')}}</small>
                     </div>
@@ -117,7 +117,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon11"><i class="ti-map"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Google Maps Pin Latitude (Not Required)" name=latt value="{{ (isset($shop)) ? $shop->SHOP_LOCT_LATT : old('latt')}}">
+                            <input type="text" class="form-control" placeholder="Google Maps Pin Latitude (Not Required)" name=latt value="{{ (isset($vet)) ? $vet->VETS_LOCT_LATT : old('latt')}}">
                         </div>
                         <small class="text-danger">{{$errors->first('latt')}}</small>
                     </div>
@@ -129,7 +129,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon11"><i class="ti-map"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Google Maps Pin Logitude (Not Required)" name=long value="{{ (isset($shop)) ? $shop->SHOP_LOCT_LONG : old('long')}}">
+                            <input type="text" class="form-control" placeholder="Google Maps Pin Logitude (Not Required)" name=long value="{{ (isset($vet)) ? $vet->VETS_LOCT_LONG : old('long')}}">
                         </div>
                         <small class="text-danger">{{$errors->first('long')}}</small>
                     </div>
@@ -151,7 +151,7 @@
 <script>
     var myWidget = cloudinary.createUploadWidget({
     cloudName: 'msquareapps', 
-    folder: "petmatch/shops",
+    folder: "petmatch/vets",
     uploadPreset: 'petmatch'}, (error, result) => { 
       if (!error && result && result.event === "success") { 
         document.getElementById('uploaded').value = result.info.url;

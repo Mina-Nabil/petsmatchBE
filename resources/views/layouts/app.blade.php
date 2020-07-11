@@ -156,7 +156,13 @@
                                     </ul>
                                 </li>
                                 <li><a href="{{url('products/show')}}">Products</a></li>
-                                <li><a href="{{url('vets/show')}}">Vets</a></li>
+                                <li>
+                                    <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"> <span class="hide-menu">Vets</span></a>
+                                    <ul aria-expanded="false" class="collapse">
+                                        <li><a href="{{url('vets/show')}}">Show</a></li>
+                                        <li><a href="{{url('vets/add')}}">Add</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </li>
 

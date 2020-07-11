@@ -24,7 +24,7 @@ class ShopsController extends Controller
         $this->data['cols'] = ['UserName', 'Name', 'City', 'Phone' , 'Mail','Edit'];
         $this->data['atts'] = ['SHOP_UNAME', 'SHOP_NAME', ['foreign' => ['city', 'CITY_NAME']], 'SHOP_PHNE', "SHOP_MAIL", 
         ['edit' => ['url' => 'shops/edit/', 'att' => 'id']]];
-        $this->data['formURL'] = ($shopID == -1) ? url('shops/insert') : url('shups/update');
+        $this->data['formURL'] = ($shopID == -1) ? url('shops/insert') : url('shops/update');
         $this->data['formTitle'] = ($shopID == -1) ? "Add New Shop" : "Edit ( " . $this->data['shop']->SHOP_NAME . " ) info";
         $this->data['isPassNeeded'] = ($shopID == -1) ? true : false;
         $this->data['isCancel'] = ($shopID == -1) ? true : false;
@@ -73,7 +73,7 @@ class ShopsController extends Controller
         $shop->SHOP_IMGE    = $request->uploadedImage;
 
         $shop->save();
-        redirect($this->homeURL);
+        return redirect($this->homeURL);
 
     }
 
@@ -108,7 +108,7 @@ class ShopsController extends Controller
         $shop->SHOP_IMGE    = $request->uploadedImage;
 
         $shop->save();
-        redirect($this->homeURL);
+        return redirect($this->homeURL);
 
     }
 
